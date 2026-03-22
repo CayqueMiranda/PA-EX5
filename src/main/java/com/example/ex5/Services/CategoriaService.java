@@ -15,6 +15,10 @@ public class CategoriaService {
         return categoriaRepository;
     }
 
+    public CategoriaService(CategoriaRepository categoriaRepository) {
+        this.categoriaRepository = categoriaRepository;
+    }
+
     public void setCategoriaRepository(CategoriaRepository categoriaRepository) {
         this.categoriaRepository = categoriaRepository;
     }
@@ -31,7 +35,7 @@ public class CategoriaService {
         return categoriaRepository.findById(id).get();
     }
 
-    public void deletar(CategoriaModel categoriaModel) {
-        categoriaRepository.delete(categoriaModel);
+    public void deletar(Long id) {
+        categoriaRepository.deleteById(id);
     }
 }
